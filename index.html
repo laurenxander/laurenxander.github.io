@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="personal_logos/initials-logo.ico"/>
+    <title>lauren+xander</title>
+
+    <!-- fonts -->
+    <!-- lexend deca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font.css">
+    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body class="lexend-deca-400" style="color: #c6c6c6; background-color: #0e0e0e;">
+
+    <div class="container-fluid g-0 p-0 d-flex flex-column vh-100 align-items-center justify-content-center">
+      
+      <h1 class="m-4">Lauren + Xander</h1>
+
+      <span>time till hug:</span>
+      <span class="mb-3"><u id="clock">calculating...</u></span>
+      
+      <img id="imageFrame" class="h-50 rounded" src="photo1.jpeg">
+      
+    </div>
+  </div>
+
+  <script>
+    // select random picture
+    var randomNumber = Math.floor(Math.random() * 7) + 1;
+    document.getElementById('imageFrame').src = 'photo' + randomNumber + '.jpeg';
+
+    // set count down
+    var countDownDate = new Date("June 14, 2024 08:00:00").getTime();
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("clock").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("clock").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+  </body>
+</html>
